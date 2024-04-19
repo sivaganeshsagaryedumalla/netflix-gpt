@@ -33,7 +33,7 @@ const Login = () => {
                 navigate("/")
             }
         });
-    })
+    }, [])
     const toggleSignup = () => {
         setSignInForm(!isSignInForm);
     }
