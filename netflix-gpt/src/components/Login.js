@@ -16,13 +16,12 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     // const user = useSelector(store => store.user)
-    // console.log(user);
     // dispatch(removeUser())
 
     const [isSignInForm, setSignInForm] = useState(true)
     const [errorMessage, updateErrorMessage] = useState(null)
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 const { uid, email, displayName } = user;
                 dispatch(addUser({ uid: uid, email: email, displayName: displayName }))
@@ -33,6 +32,8 @@ const Login = () => {
                 navigate("/")
             }
         });
+        //whenever the component unmounts we are unsubsribing to the onauthstatechange call back
+        return () => unsubscribe();
     }, [])
     const toggleSignup = () => {
         setSignInForm(!isSignInForm);
@@ -57,7 +58,6 @@ const Login = () => {
                     .then((userCredential) => {
                         // Signed up 
                         const user = userCredential.user;
-                        console.log(user);
                         // ...
                     })
                     .catch((error) => {

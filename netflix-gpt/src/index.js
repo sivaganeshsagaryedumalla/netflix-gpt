@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //this strictmode will render the ui 2 times for checking for incosistencies
   <React.StrictMode>
     <App />
   </React.StrictMode>
