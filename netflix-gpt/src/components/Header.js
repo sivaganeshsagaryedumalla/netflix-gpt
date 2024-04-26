@@ -36,7 +36,7 @@ const Header = () => {
 
                 </div>
                 {user && ( // Render the logout button only if user is logged in
-                    <div className='absolute z-10 top-0 right-0 text-white'>
+                    <div className='absolute z-10 top-4 right-0 text-white'>
                         <button className='uppercase border-red-300 p-2 border-2 rounded-md text-sm' onClick={() => handleLogout()}>Logout from Netflix</button>
                     </div>
                 )}
