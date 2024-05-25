@@ -15,9 +15,6 @@ const Login = () => {
     const passwd = useRef(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    // const user = useSelector(store => store.user)
-    // dispatch(removeUser())
-
     const [isSignInForm, setSignInForm] = useState(true)
     const [errorMessage, updateErrorMessage] = useState(null)
     useEffect(() => {
